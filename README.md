@@ -3,9 +3,9 @@
 One simple class to manage basket operations, and loading input data.
 
 ## Assumptions
-Wwe are loading data coming from JSON sources - for the purposes of this exercise from JSON files located in `data` folder. 
+We are loading data coming from JSON sources - for the purposes of this exercise - from JSON files located in `data` folder. 
 
-*Products* are super simple, unique ID, name & price as a float numbrer
+*Products* have super simple structure: unique ID, name & price as a float number
 
 ```
 {
@@ -15,7 +15,7 @@ Wwe are loading data coming from JSON sources - for the purposes of this exercis
 }
 ```
 
-*Delivery* rules are described in ascending (brackets) order in another JSON file `deliveryRules.json`:
+*Delivery* rules are described in ascending order (for costs brackets) in another JSON file `deliveryRules.json`:
 ```
 [   {
         "amountMax": 50,
@@ -44,7 +44,7 @@ Wwe are loading data coming from JSON sources - for the purposes of this exercis
 }
 ```
 
-To get actual efficiency we have to do the math inside PHP code. So in production environment we do have set of possible types of offers (fe: get x-amount and get, y-discount on next product, reach x-amount and get y discount on others and so on)
+To get actual efficiency we have to do the math inside PHP code. So in production environment I would build set of possible types of offers (fe: get x-amount and get, y-discount on next product, reach x-amount and get y discount on others and so on). Here I just put one code inside `calcSpecialPrice` function. 
 
 To be more flexible we could:
 1. allow users to define calc functions in JSON (source) file and use sth. like EVAL to execute calc (not very fast, but supper flexible, no code changes are required if new promo comes in)
@@ -55,13 +55,11 @@ To be more flexible we could:
 
 Source code is in `src/Basket.php` tests are available by running `./vendor/bin/phpunit` or with code coverage `--coverage-text . --whitelist=./src --no-configuration tests`.
 
-## 
-
 ## final comment
 
 I found small bug, not sure if intended but price of `R01` product is 32.95 if we give 50% discount price goes to `16.475` - if we round this up it is `16.48` - so `2 x R01` with promo offer goes to `54.38` with shipping not `54.37`. To match given in example values, we had to use `floor` to round up numbers instead of regular round. 
 
-# TASK: Acme Widget Co 
+### original TASK description for reference: Acme Widget Co 
 
 Acme Widget Co are the leading provider of made up widgets and they’ve contracted you to create a proof of concept for their new sales system. 
 
