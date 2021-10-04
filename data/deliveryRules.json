@@ -1,0 +1,15 @@
+[
+  {
+    "amountMax": 50,
+    "cost": 4.95
+  },
+  {
+    "amountMin": 50,
+    "amountMax": 90,
+    "cost": 2.95
+  },
+  {
+    "amountMin": 90,
+    "cost": 0
+  }
+]

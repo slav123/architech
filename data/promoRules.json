@@ -1,0 +1,7 @@
+[{
+  "name": "",
+  "desc" : "buy one red widget, get the second half price",
+  "productId": "R01",
+  "priceFactor": 0.5,
+  "qty" : 1
+}]
